@@ -36,7 +36,7 @@ string Solution::addBinary(string a, string b)
 
     if(lengthA == 0 || lengthB == 0)
     {
-        error = ErrorCode::INPUT_EMPTY;
+        error = ErrorCode::RANGE_OUT_OF_SEQUENCE;
     }
 
     if(lengthA > MAX_LENGTH || lengthB > MAX_LENGTH) {

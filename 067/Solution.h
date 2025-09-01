@@ -13,7 +13,7 @@ constexpr char NULL_CHAR = '\0';
 enum class ErrorCode {
     OK = 0,
     INPUT_IS_NULL,
-    INPUT_EMPTY,
+    RANGE_OUT_OF_SEQUENCE,
     INPUT_TOO_LONG,
     INVALID_BIT_VALUE,
 };

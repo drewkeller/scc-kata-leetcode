@@ -1,3 +1,12 @@
+cmake_minimum_required(VERSION 3.5...4.10)
+set(CMAKE_CXX_STANDARD 17)
+
+project(Solution)
+set(PROJECT ${CMAKE_PROJECT_NAME})
+set(PROJECT_LIB ${PROJECT}_lib)
+
+add_executable(${PROJECT})
+
 set(SOURCES
     Solution.cpp
     )
@@ -16,6 +25,7 @@ set(TEST_SOURCES
 enable_testing()
 add_executable(${TEST_PROJECT} ${TEST_SOURCES})
 #add_test(NAME ${TEST_PROJECT} COMMAND ${TEST_PROJECT})
+add_subdirectory(../../lib/googletest ../lib/googletest)
 
 target_link_libraries(${TEST_PROJECT} PRIVATE gtest gtest_main gmock gmock_main ${PROJECT_LIB})
 

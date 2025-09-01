@@ -34,7 +34,7 @@ initializer_list<BinaryStringTestObj> ValidTestValues = {
 };
 
 initializer_list<InvalidTestObj> InValidTestValues = {
-    { "", ErrorCode::INPUT_EMPTY },
+    { "", ErrorCode::RANGE_OUT_OF_SEQUENCE },
     { "12", ErrorCode::INVALID_BIT_VALUE },
     { string(100001, '1'), ErrorCode::INPUT_TOO_LONG },
     //{ nullptr, ErrorCode::INPUT_IS_NULL }, can't construct string from nullptr
