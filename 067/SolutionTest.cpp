@@ -9,7 +9,6 @@ typedef struct BinaryStringTestObj {
     string Input1;
     string Input2;
     string Result;
-    ErrorCode Error;
 } BinaryStringTestObj;
 
 typedef struct InvalidTestObj {
@@ -18,14 +17,20 @@ typedef struct InvalidTestObj {
 } InvalidTestObj;
 
 initializer_list<BinaryStringTestObj> ValidTestValues = {
-    { "0", "0", "0", ErrorCode::OK },
-    { "1", "0", "1", ErrorCode::OK },
-    { "0", "1", "1", ErrorCode::OK },
-    { "1", "1", "10", ErrorCode::OK },
-    { "11", "11", "110", ErrorCode::OK },
-    { "10", "10", "100", ErrorCode::OK },
-    { "111", "111", "1110", ErrorCode::OK },
-    { "101", "101", "1010", ErrorCode::OK },
+    { "0", "0", "0" },
+    { "1", "0", "1" },
+    { "0", "1", "1" },
+    { "1", "1", "10" },
+    { "11", "0", "11" },
+    { "11", "1", "100" },
+    { "11", "11", "110" },
+    { "10", "10", "100" },
+    { "0", "111", "111" },
+    { "1", "111", "1000" },
+    { "11", "111", "1010" },
+    { "101", "101", "1010" },
+    { "111", "111", "1110" },
+    { "101", "101", "1010" },
 };
 
 initializer_list<InvalidTestObj> InValidTestValues = {
@@ -39,7 +44,7 @@ void PrintTo(const BinaryStringTestObj& obj, ostream *os)
 {
     *os << "{ ";
     *os << "\"" << obj.Input1 << "\" + ";
-    *os << "\"" << obj.Input1 << "\"";
+    *os << "\"" << obj.Input2 << "\"";
     *os << " }";
 }
 
@@ -69,7 +74,7 @@ TEST_P(BinaryStringParsingTest, GIVEN_BinaryString_WHEN_Parsed_THEN_ReturnsCorre
     auto testObj = GetParam();
     auto result = solution.addBinary(testObj.Input1, testObj.Input2);
     EXPECT_THAT(testObj.Result, result);
-    EXPECT_THAT(testObj.Error, solution.Error);
+    EXPECT_THAT(ErrorCode::OK, solution.Error);
 }
 
 TEST_P(InvalidBinaryStringParsingTest, GIVEN_InvalidBinaryString_WHEN_Param1Invalid_THEN_HasCorrectErrorCode)

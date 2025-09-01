@@ -69,7 +69,6 @@ string Solution::addBinary(string a, string b)
             carry++;
         } else if((bitA == 1 || bitB == 1) && carry > 0) {
             result[length] = '0';
-            carry--;        
         } else if(bitA == 1 || bitB == 1) {
             result[length] = '1';
         } else if(carry > 0) {
