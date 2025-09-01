@@ -14,10 +14,11 @@ Solution::Solution()
 
 string Solution::addBinary(string a, string b) 
 {
+    constexpr uint MAX_LENGTH = 100000;
     constexpr uint INVALID_BIT = 0xFFFF;
     string result(MAX_LENGTH, '-');
 
-    Error = ErrorCode::OK;
+    ErrorCode error = ErrorCode::OK;
 
     struct BinaryString {
         ulong Length;
@@ -35,14 +36,14 @@ string Solution::addBinary(string a, string b)
 
     if(lengthA == 0 || lengthB == 0)
     {
-        Error = ErrorCode::INPUT_EMPTY;
+        error = ErrorCode::INPUT_EMPTY;
     }
 
     if(lengthA > MAX_LENGTH || lengthB > MAX_LENGTH) {
-        Error = ErrorCode::INPUT_TOO_LONG;
+        error = ErrorCode::INPUT_TOO_LONG;
     }
 
-    while(Error == ErrorCode::OK && (ptrA >= &a[0] || ptrB >= &b[0] || carry > 0))
+    while(error == ErrorCode::OK && (ptrA >= &a[0] || ptrB >= &b[0] || carry > 0))
     {
         uint bitA = 0;
         if(length < lengthA) {
@@ -58,7 +59,7 @@ string Solution::addBinary(string a, string b)
 
         if(bitA == INVALID_BIT || bitB == INVALID_BIT)
         {
-            Error = ErrorCode::INVALID_BIT_VALUE;
+            error = ErrorCode::INVALID_BIT_VALUE;
             break;
         }
 
@@ -82,13 +83,14 @@ string Solution::addBinary(string a, string b)
     }
     result.resize(length);
 
-    if(Error == ErrorCode::OK)
+    if(error == ErrorCode::OK)
     {
         ReverseString(&result[0], length);
     } else {
         result.resize(0);
     }
 
+    Error = error;
     return result;
 }
 
