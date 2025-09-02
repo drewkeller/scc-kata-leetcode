@@ -56,7 +56,7 @@ TEST_P(TestObjFixture, GIVEN_Range_WHEN_ANDed_THEN_ReturnsCorrectResult)
 // for debugging
 TEST_F(SolutionTest, GIVEN_SpecificValue_THEN_ResultIsCorrect)
 {
-    TestObj testObj = { 2, 6, 0};
+    TestObj testObj = { 10, 0xf, 0x8};
     EXPECT_THAT(testObj.Result, solution.rangeBitwiseAnd(testObj.Left, testObj.Right));
     EXPECT_THAT(ErrorCode::OK, solution.Error);
 }

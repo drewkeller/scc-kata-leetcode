@@ -17,5 +17,6 @@ public:
     ErrorCode Error;
     Solution();
     int rangeBitwiseAnd(int left, int right);
+    int GetShiftedSignificance(int value, int currentShift);
     int GetHighestSignificantValue(int left);
 };
