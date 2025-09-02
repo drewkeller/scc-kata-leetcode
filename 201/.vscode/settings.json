@@ -1,4 +1,5 @@
 {
     "cmake.ignoreCMakeListsMissing": true,
+    "testMate.cpp.test.executables": "*{test,Test,TEST}*",
     "C_Cpp.default.compilerPath": "C:/Strawberry/c/bin/g++.exe"
 }

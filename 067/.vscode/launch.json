@@ -6,10 +6,10 @@
     "configurations": [
         {
             // https://stackoverflow.com/questions/57891050/how-run-build-task-automatically-before-debugging-in-visual-studio-code
-            "name": "(gdb) Launch",
+            "name": "Debug",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/Solution_Test.exe",
+            "program": "${workspaceFolder}/build/Solution.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

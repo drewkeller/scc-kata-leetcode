@@ -20,21 +20,20 @@
                 "-std=c++17",
                 "-pthread",
                 // include GoogleTest
-                "-I${workspaceFolder}/../lib/googletest/googletest/include",
-                "-I${workspaceFolder}/../lib/googletest/googlemock/include",
-                "-L${workspaceFolder}/../lib/googletest/bin",
+                "-I${workspaceFolder}/../../lib/googletest/googletest/include",
+                "-I${workspaceFolder}/../../lib/googletest/googlemock/include",
+                "-L${workspaceFolder}/../../lib/googletest/bin",
                 // linking GoogleTest
                 "-lgtest", "-lgtest_main", "-lgmock", "-lgmock_main",               
                 "-o", "SolutionTest.exe",
-                "${workspaceFolder}\\..\\lib\\googletest\\bin\\libgtest.a",
-                "../lib/googletest/bin/libgtest_main.a",
-                "../lib/googletest/bin/libgmock.a",
-                "../lib/googletest/bin/libgmock_main.a",
+                "../../lib/googletest/bin/libgtest.a",
+                "../../lib/googletest/bin/libgtest_main.a",
+                "../../lib/googletest/bin/libgmock.a",
+                "../../lib/googletest/bin/libgmock_main.a",
                 // Solution sources
                 "-I${workspaceFolder}",
                 "./Solution.cpp",
-                "./SolutionTest.cpp",
-                "${workspaceFolder}\\SolutionTest.cpp"
+                "./SolutionTest.cpp"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"

@@ -26,15 +26,14 @@
                 // linking GoogleTest
                 "-lgtest", "-lgtest_main", "-lgmock", "-lgmock_main",               
                 "-o", "SolutionTest.exe",
-                "${workspaceFolder}\\..\\..\\lib\\googletest\\bin\\libgtest.a",
+                "../../lib/googletest/bin/libgtest.a",
                 "../../lib/googletest/bin/libgtest_main.a",
                 "../../lib/googletest/bin/libgmock.a",
                 "../../lib/googletest/bin/libgmock_main.a",
                 // Solution sources
                 "-I${workspaceFolder}",
                 "./Solution.cpp",
-                "./SolutionTest.cpp",
-                "${workspaceFolder}\\SolutionTest.cpp"
+                "./SolutionTest.cpp"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
