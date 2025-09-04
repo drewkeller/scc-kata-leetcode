@@ -1,0 +1,73 @@
+{
+    "tasks": [
+        {
+            "label": "Run SolutionTest",
+            "command": "${workspaceFolder}/SolutionTest.exe",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "test",
+        },
+
+        {
+            "type": "cppbuild",
+            "label": "Build SolutionTest",
+            "command": "g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                // required for GoogleTest
+                "-std=c++17",
+                "-pthread",
+                // include GoogleTest
+                "-I${workspaceFolder}/../../lib/googletest/googletest/include",
+                "-I${workspaceFolder}/../../lib/googletest/googlemock/include",
+                "-L${workspaceFolder}/../../lib/googletest/bin",
+                // linking GoogleTest
+                "-lgtest", "-lgtest_main", "-lgmock", "-lgmock_main",               
+                "-o", "SolutionTest.exe",
+                "../../lib/googletest/bin/libgtest.a",
+                "../../lib/googletest/bin/libgtest_main.a",
+                "../../lib/googletest/bin/libgmock.a",
+                "../../lib/googletest/bin/libgmock_main.a",
+                // Solution sources
+                "-I${workspaceFolder}",
+                "./Solution.cpp",
+                "./SolutionTest.cpp"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "compiler: C:/Strawberry/c/bin/g++.exe"
+        },
+
+        {
+            "type": "cppbuild",
+            "label": "Build Solution",
+            "command": "g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-std=c++17",
+                "-pthread",
+                "-g",
+                "-o", "${workspaceFolder}/Solution.exe",
+                "-I./",
+                "./main.cpp",
+                "./Solution.cpp",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "compiler: C:/Strawberry/c/bin/g++.exe"
+        }
+    ],
+    "version": "2.0.0"
+}
